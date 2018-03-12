@@ -23,4 +23,8 @@ def post_details(request, pk):
     # Question 2
     # You should create a new file in the templates directory.
     # REPLACE THE LINE WITH YOUR CODE
-    return HttpResponse("No post details page :(")
+    pk = int(pk)
+    pk = pk-1
+    all_posts = Post.objects.all()
+    posts = all_posts[pk]
+    return render(request, "posts/hihi.html", { "posts":posts })
